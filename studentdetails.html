@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <title> Student Details </title>
+        <style>
+               
+      
+      
+    
+    </style>
+            <script>
+               
+            students=[]
+                function details(){
+                     
+                    var name=document.getElementById("name");
+                    var age=document.getElementById("age");
+                    var usn=document.getElementById("USN");
+                    var phone=document.getElementById("number");
+                    var mail=document.getElementById("email");
+                    var student= {name:name.value,USN:usn.value,age:age.value,phone:phone.value,mail:mail.value}
+                    students.push(student)
+                    console.log(students)
+                    alert("Student details submitted successfully!")
+                    // student list node
+                    let studentlistNode=document.createElement('div')
+                    studentlistNode.setAttribute("id","studentList")
+                    studentlistNode.style="display:flex;flex-direction:column;background-color: #ffffff;padding: 20px;margin-bottom: 15px;border-left: 5px solid #006d77;border-radius: 10px;box-shadow: 0 2px 10px rgba(0,0,0,0.1);width:400px"
+                    document.body.appendChild(studentlistNode)
+                    // 2.Add the item to the list
+                    //Name Html tag
+                    let index = students.length - 1;
+                    let nameNode = document.createElement('h3');
+                    nameNode.style = "color:#333;font-family:cursive;margin:10px;";
+                    nameNode.innerText = `${index + 1}. ${student.name}`;
+                    
+
+                    let ageNode = document.createElement('p');
+                    ageNode.style = "color:#333;font-family:cursive;margin:10px;";
+                    ageNode.innerText = "Age: " + student.age;
+                    
+
+                    let usnNode = document.createElement('p');
+                    usnNode.style = "color:#333;font-family:cursive;margin:10px;";
+                    usnNode.innerText = "USN: " + student.USN;
+                    let mailNode= document.createElement('p');
+                    mailNode.style = "color:#333;font-family:cursive;margin:10px;";
+                    mailNode.innerText = "Email:"+ student.mail;
+                    let phoneNode= document.createElement('p');
+                    phoneNode.style = "color:#333;font-family:cursive;margin:10px;";
+                    phoneNode.innerText= "Mobile:"+ student.phone;
+                    let studentCard = document.createElement('div');
+                    studentCard.style = `
+                            background-color: #fdfdfd;
+                            padding: 15px;
+                            margin: 10px 0;
+                            border-radius: 10px;
+                            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                             `;
+                    studentCard.appendChild(nameNode);
+                    studentCard.appendChild(ageNode);
+                    studentCard.appendChild(usnNode);
+                    studentCard.appendChild(mailNode);
+                    studentCard.appendChild(phoneNode);
+                studentlistNode.appendChild(studentCard);
+                document.getElementById("form").reset();
+                }
+                    
+            </script>
+        
+    </head>
+    
+    <body style="background: #edf6f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 10;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;">
+
+         <center>
+        <h1>Enter your details</h1>
+        <form id="form" style="
+        align-items: center;
+        background-color: #ffffff;
+        color: #023047;
+        padding: 20px;
+        border-radius: 20px;
+        border-color: #83c5be;
+        border:2px solid #83c5be;
+        width: 195px;
+        justify-content: center;">
+            
+            <label for="name">Name:</label>
+            <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Fullname"/>
+            <br/>
+            <label for="USN">USN:</label>
+            <input 
+            type="text"
+            id="USN"
+            name="USN"
+            placeholder="USN"/>
+            <br/>
+             <label for="age">Age:</label>
+            <input
+            type="number"
+            id="age"
+            name="age"
+            placeholder="Age"/>
+            <br/>
+            <label for="Phone number">Phone Number:</label>
+             <input
+            type="tel"
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{2}"
+            placeholder="Number"
+            id="number"/>
+            <br/>
+           
+            <label for="email">Email:</label>
+                <input
+                type="text"
+                placeholder="Email"
+                id="email"/>
+                <br/>
+            </form>
+            <button style="
+      width: 80%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #006d77;
+      color: #023047;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;"
+    onclick="details()">Submit</button>
+    </body>
+</html>
